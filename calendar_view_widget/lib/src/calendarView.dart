@@ -227,7 +227,7 @@ class _CalendarState extends State<CalendarView> {
   }
 
   _onEventTapped(Map<String, String> event) {
-    widget.onEventTapped(event);
+    print(event);
   }
 
   @override

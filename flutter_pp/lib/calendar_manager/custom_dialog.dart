@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
 
 import 'consts.dart';
+import 'appointment_view.dart';
 
 class CustomDialog extends StatelessWidget {
+
+  
+  final int currentMonth;
+  final int currentYear;
+  final int currentDay;
+  final Map<int, Map<int, Map<int, List>>> events;
+
+  CustomDialog({
+    this.currentYear,
+    this.currentMonth,
+    this.currentDay,
+    this.events,
+  });
+
+   Map<int, List> _monthlyEvents() {
+    if (events != null && events[currentYear] != null) {
+      final yearEvents = events[currentYear];
+      if (yearEvents[currentMonth] != null) {
+        return yearEvents[currentMonth];
+      }
+    }
+    return {};
+  }
+
+   _onEventTapped(Map<String, String> event) {
+    print(event);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -33,6 +62,13 @@ class CustomDialog extends StatelessWidget {
                 ],
               ),
               child: Container(
+                child: AppointmentView(
+                  events: _monthlyEvents(),
+                  currentDay: currentDay,
+                  titleField: 'title',
+                  detailField: 'detial',
+                  onAppTapped: _onEventTapped,
+                )
                   //child: ListView(),
               )
           ),
