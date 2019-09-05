@@ -86,12 +86,17 @@ class AppointmentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: ListView(
-          children: _appointmentList(),
+    return Container(
+        child: Column(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            child: ListView(
+              children: _appointmentList(),
+            ),
+          ),
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
