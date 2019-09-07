@@ -190,7 +190,7 @@ class _CalendarManager extends State<CalendarManager> {
       thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
       markedDatesMap: _markedDateMap,
-      height: 416.5,
+      height: MediaQuery.of(context).size.height-131.0,
       selectedDateTime: _currentDate2,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
       markedDateShowIcon: true,
