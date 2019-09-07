@@ -63,7 +63,8 @@ class CustomDialog extends StatelessWidget {
                 events: _monthlyEvents(),
                 currentDay: currentDay,
                 titleField: 'title',
-                detailField: 'detial',
+                detailField: 'description',
+                dateField: 'date',
                 onAppTapped: _onEventTapped,
               )),
           Positioned(
@@ -72,7 +73,9 @@ class CustomDialog extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.orangeAccent,
               radius: Consts.avatarRadius,
-              child: Text('2'),
+              child: Text(
+                currentDay.toString(),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),),
             ),
           ),
         ]));

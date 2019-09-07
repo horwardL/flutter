@@ -19,7 +19,7 @@ class AppointmentView extends StatelessWidget {
 
   String timeString(event) {
     final date = DateTime.parse(event[dateField]).toLocal();
-    return DateFormat.jm().format(date);
+    return DateFormat.jms().format(date);
   }
 
   Widget eventRow(int day, Map<String, String> event) => InkWell(
@@ -68,6 +68,21 @@ class AppointmentView extends StatelessWidget {
         ),
       );
 
+  /* List<Widget> _appointmentList() {
+    List<Widget> list = [];
+    List dayEvents = events[currentDay];
+    if(dayEvents != null){
+      for (var i = 0; i < dayEvents.length; i++) {
+        list.add(eventRow(currentDay, dayEvents[i]));
+        list.add(Divider(
+          color: Colors.orange,
+          height: 0.0,
+        ));
+      }
+    }
+    return list;
+  } */
+
   List<Widget> _appointmentList() {
     List<Widget> list = [];
     events.forEach((int day, List dayEvents) {
@@ -86,8 +101,9 @@ class AppointmentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
+    return //Container(
+        /* child:  */
+      Column(
       children: <Widget>[
         Expanded(
           child: Container(
@@ -95,8 +111,7 @@ class AppointmentView extends StatelessWidget {
               children: _appointmentList(),
             ),
           ),
-        ),
-      ],
-    ));
+        ),],
+    );
   }
 }
